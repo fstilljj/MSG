@@ -1,0 +1,15 @@
+version: "3"
+services:
+  ftp:
+    build: ./ftp_dir
+    container_name: vsftpd_4MSGview
+    restart: always
+    ports:
+      - "21:21"
+      - "20:20"
+    environment:
+      FTP_USER: ftp
+      FTP_PASS: password
+      LOCAL_UMASK: 022
+    volumes:
+      - ./ftp_dir:/srv/ftp
